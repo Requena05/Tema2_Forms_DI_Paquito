@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_margin="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".E2Activity">
+<!--Crea una aplicación Android que solicite al usuario información básica utilizando TextInputLayout y -->
+<!--    TextInputEditText. La aplicación debe validar los campos antes -->
+<!--    de permitir el envío del formulario.-->
+
+    <!--    Requisitos:-->
+<!--    ● Un campo para el nombre del usuario.-->
+<!--    ● Un campo para el correo electrónico.-->
+<!--    ● Un campo para la contraseña.-->
+<!--    ● Un botón de envío.-->
+
+    <!--    Funcionalidades Adicionales (opcional):-->
+<!--    ● Mostrar un mensaje de error personalizado-->
+<!--    para cada validación fallida.-->
+<!--    ● Utilizar diferentes estilos de TextInputLayout-->
+<!--    para resaltar los campos según su estado-->
+<!--    (correcto/incorrecto).-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/camponombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:helperText="Obligatorio"
+        android:hint="Nombre"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:inputType="text"
+            android:textSize="20dp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/campocorreo"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/camponombre"
+        app:helperText="Obligatorio"
+        android:hint="Correo"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/correo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:inputType="text"
+            android:textSize="20dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/campocontraseña"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="Contraseña"
+        app:helperText="Obligatorio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/campocorreo"
+        app:passwordToggleEnabled="true"
+
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/contraseña"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:inputType="textPassword"
+
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:id="@+id/insertar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/campocontraseña"
+        android:layout_marginTop="20dp"
+        android:text="Insertar"
+        android:shadowColor="@color/black"
+
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
