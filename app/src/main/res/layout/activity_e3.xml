@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_margin="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".E3Activity">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/campocorreo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:endIconMode="custom"
+        app:helperText="Obligatorio"
+        android:hint="correo"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/correo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:inputType="textEmailAddress"
+            android:textSize="20dp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/campocontraseña"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/campocorreo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:endIconMode="custom"
+        app:helperText="obligatorio"
+        android:hint="Contraseña"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/contraseña"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:inputType="textPassword"
+            android:textSize="20dp"
+            />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+   <LinearLayout
+       android:id="@+id/nombreycp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:layout_constraintTop_toBottomOf="@id/campocontraseña"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent">
+
+       <com.google.android.material.textfield.TextInputLayout
+           android:id="@+id/camponombre"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+            android:layout_weight="1"
+           app:endIconMode="custom"
+           app:helperText="Obligatorio"
+           android:layout_marginEnd="5dp"
+           android:hint="Nombre"
+           >
+           <com.google.android.material.textfield.TextInputEditText
+               android:id="@+id/nombre"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:fontFamily="sans-serif"
+               android:inputType="text"
+               android:textSize="20dp"
+
+               />
+       </com.google.android.material.textfield.TextInputLayout>
+       <com.google.android.material.textfield.TextInputLayout
+           android:id="@+id/campoCP"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_weight="1"
+           app:endIconMode="custom"
+           app:helperText="Obligatorio"
+           android:layout_marginStart="5dp"
+           android:hint="CP"
+           >
+           <com.google.android.material.textfield.TextInputEditText
+               android:id="@+id/cp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:fontFamily="sans-serif"
+               android:inputType="number"
+               android:textSize="20dp"
+
+               />
+       </com.google.android.material.textfield.TextInputLayout>
+
+   </LinearLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/campofecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/nombreycp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:endIconMode="custom"
+        app:helperText="Obligatorio"
+        android:hint="Fecha"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:inputType="date"
+            android:focusable="false"
+            android:textSize="20dp"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:id="@+id/insertar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Insertar"
+        android:shadowColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/campofecha"
+        android:layout_margin="30dp"
+
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

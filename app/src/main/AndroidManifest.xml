@@ -13,8 +13,9 @@
         android:theme="@style/Theme.Tema2_Forms_DI_Paquito"
         tools:targetApi="31">
         <activity
-            android:name=".E2Activity"
-            android:exported="true">
+            android:name=".E3Activity"
+            android:exported="true"
+           >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,10 +23,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".E2Activity"
+            android:exported="false">
+        </activity>
+
+        <activity
             android:name=".MainActivity"
             android:exported="false">
-
         </activity>
+
     </application>
 
 </manifest>
