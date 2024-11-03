@@ -8,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isEmpty
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.textfield.TextInputEditText
@@ -24,7 +25,12 @@ class E3Activity : AppCompatActivity() {
     private var esnombrevalid : Boolean=false
     private var escorreovalid : Boolean=false
     private var escontraseñavalid : Boolean=false
+    private var esfechavalid : Boolean=false
     private lateinit var fecha: TextInputEditText
+    private lateinit var campofecha: TextInputLayout
+    private lateinit var cp: TextInputEditText
+    private lateinit var campocp: TextInputLayout
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -37,6 +43,13 @@ class E3Activity : AppCompatActivity() {
         campocontraseña=findViewById(R.id.campocontraseña)
         contraseña=findViewById(R.id.contraseña)
         fecha=findViewById(R.id.fecha)
+        campofecha=findViewById(R.id.campofecha)
+        cp=findViewById(R.id.cp)
+        campocp=findViewById(R.id.campoCP)
+        boton.visibility= View.GONE
+
+
+
 
         fecha.setOnClickListener{
             val buider= MaterialDatePicker.Builder.datePicker()
@@ -47,15 +60,40 @@ class E3Activity : AppCompatActivity() {
 
                 //el usuario no puede ser menor de edad
             if(modalQueSeAbre.selection!! > System.currentTimeMillis() - 315360000000  ){
-                fecha.error="Fecha no valida"
+                campofecha.error="Fecha no valida"
+                esfechavalid=false
+                comprobarForm()
             }else{
-                fecha.error=null
+                campofecha.boxStrokeColor = getColor(R.color.verde)
+                campofecha.helperText="Nombre correcto"
+                campofecha.hintTextColor=getColorStateList(R.color.verde)
+                campofecha.setHelperTextColor(getColorStateList(R.color.verde))
+                campofecha.setEndIconActivated(true)
+                campofecha.setEndIconDrawable(R.drawable.baseline_check_box_24)
+                campofecha.setEndIconTintList(getColorStateList(R.color.verde))
+                esfechavalid=true
+                comprobarForm()
             }
             }
 
         }
 
+        cp.doOnTextChanged { text, start, count, after ->
+            if (cp.text.toString().length!=5) {
+                campocp.error = "CP no permitido"
 
+                if(cp.text.toString().isEmpty()){
+                    campocp.error=null
+                    campocp.helperText="Cp no introducido"
+                }
+            }else {
+                campocp.boxStrokeColor = getColor(R.color.verde)
+                campocp.helperText="CP correcto"
+                campocp.hintTextColor=getColorStateList(R.color.verde)
+                campocp.setHelperTextColor(getColorStateList(R.color.verde))
+            }
+
+        }
 
         nombre.doOnTextChanged { text, start, count, after ->
 
@@ -127,7 +165,7 @@ class E3Activity : AppCompatActivity() {
 
     }
     private fun comprobarForm() {
-        if (escorreovalid && esnombrevalid && escontraseñavalid) {
+        if (escorreovalid && esnombrevalid && escontraseñavalid && esfechavalid ) {
             boton.visibility = View.VISIBLE
         }else
             boton.visibility= View.GONE
