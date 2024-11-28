@@ -59,7 +59,7 @@ class E3Activity : AppCompatActivity() {
                 fecha.setText(modalQueSeAbre.headerText)
 
                 //el usuario no puede ser menor de edad
-            if(modalQueSeAbre.selection!! > System.currentTimeMillis() - 315360000000  ){
+            if(modalQueSeAbre.selection!! > System.currentTimeMillis() - 568036800000  ){
                 campofecha.error="Fecha no valida"
                 esfechavalid=false
                 comprobarForm()
